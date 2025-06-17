@@ -38,7 +38,7 @@ def get_lists(lines: list[str]) -> tuple[list[int], list[int]]:
 
 
 def count_sums() -> tuple[int, int]:
-    lines = files.read_file("data/cube_conundrum")
+    lines = files.read_file('data.txt')
     ids, powers = get_lists(lines)
     return sum(ids), sum(powers)
 

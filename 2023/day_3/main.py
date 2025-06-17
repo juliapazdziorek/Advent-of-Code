@@ -117,7 +117,7 @@ def find_gears(array: list[list[str]]) -> list[Gear]:
 
 
 def count_sums() -> tuple[int, int]:
-    array = files.read_file_into_2d_array("data/gear_ratios")
+    array = files.read_file_into_2d_array('data.txt')
 
     part_numbers = find_part_numbers(array)
     gears = find_gears(array)
