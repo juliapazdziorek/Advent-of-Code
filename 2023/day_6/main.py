@@ -4,7 +4,7 @@ from utils import files
 from utils import maths
 
 
-# --- Day 6: Wait For It ---
+# Day 6: Wait For It
 # https://adventofcode.com/2023/day/6
 
 
