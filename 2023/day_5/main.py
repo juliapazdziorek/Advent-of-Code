@@ -70,9 +70,9 @@ def count_min_values_location(seeds_values: list[int], maps: list[list[Mapping]]
 
 def map_ranges_through_map(ranges: list[Range], current_map: list[Mapping]) -> list[Range]:
     result = []
-    for range in ranges:
+    for current_range in ranges:
 
-        to_map = [range]
+        to_map = [current_range]
         for mapping in current_map:
             src_start = mapping.src_start
             src_end = mapping.src_start + mapping.length - 1
