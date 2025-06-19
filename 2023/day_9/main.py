@@ -47,5 +47,6 @@ def main() -> None:
     print(f"1. The sum of extrapolated next values in history is equal to: {sum_of_next_values}")
     print(f"2. The sum of extrapolated previous values in history is equal to: {sum_of_previous_values}")
 
+
 if __name__ == "__main__":
     main()
