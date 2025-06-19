@@ -113,9 +113,9 @@ def get_total_winnings() -> tuple[int, int]:
 
 
 def main() -> None:
-    total_winnings, total_winings_joker_rule = get_total_winnings()
+    total_winnings, total_winnings_joker_rule = get_total_winnings()
     print(f"1. The total winnings are equal to {total_winnings}")
-    print(f"1. The total winnings using the joker rule are equal to {total_winings_joker_rule}")
+    print(f"1. The total winnings using the joker rule are equal to {total_winnings_joker_rule}")
 
 
 if __name__ == "__main__":
