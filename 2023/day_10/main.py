@@ -201,12 +201,6 @@ def count_spaces_inside_loop(pipe_array: list[list[str]]) -> int:
     return sum(row.count('@') for row in pipe_array)
 
 
-def print_array_to_file(pipe_array: list[list[str]], filename: str) -> None:
-    with open(filename, 'w') as f:
-        for row in pipe_array:
-            f.write(''.join(row) + '\n')
-
-
 def main() -> None:
     pipe_array = files.read_file_into_2d_array('data.txt')
     loop_coordinates = get_loop_coordinates(pipe_array)
