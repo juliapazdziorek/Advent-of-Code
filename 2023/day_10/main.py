@@ -34,7 +34,7 @@ def find_s_coordinates(pipe_array: list[list[str]]) -> tuple[int, int] | None:
     for i, row in enumerate(pipe_array):
         for j, val in enumerate(row):
             if val == 'S':
-                return (i, j)
+                return i, j
     return None
 
 
@@ -101,7 +101,7 @@ def get_loop_coordinates(pipe_array: list[list[str]]) -> set[tuple[int, int]] | 
     return None
 
 
-def count_steps_fartherst_point(loop_coordinates: set[tuple[int, int]]) -> int:
+def count_steps_farthest_point(loop_coordinates: set[tuple[int, int]]) -> int:
     return len(loop_coordinates) // 2
 
 
@@ -182,7 +182,7 @@ def flood_array(pipe_array: list[list[str]]) -> list[list[str]]:
         
         for delta_i, delta_j in DIRECTIONS:
             new_i, new_j = i + delta_i, j + delta_j
-            if (0 <= new_i < rows and 0 <= new_j < columns and (new_i, new_j) not in visited and pipe_array[new_i][new_j] != '#'):
+            if 0 <= new_i < rows and 0 <= new_j < columns and (new_i, new_j) not in visited and pipe_array[new_i][new_j] != '#':
                 queue.append((new_i, new_j))
                 visited.add((new_i, new_j))
     return pipe_array
@@ -208,11 +208,11 @@ def main() -> None:
         print("No loop found.")
         return
     
-    steps_to_fartherst_point = count_steps_fartherst_point(loop_coordinates)
+    steps_to_farthest_point = count_steps_farthest_point(loop_coordinates)
     pipe_array = modify_pipe_array(pipe_array, loop_coordinates)
     spaces_inside_loop = count_spaces_inside_loop(pipe_array)
 
-    print(f"1. The numbers of steps to farthest the point from the starting position is equal to: {steps_to_fartherst_point}")
+    print(f"1. The numbers of steps to farthest the point from the starting position is equal to: {steps_to_farthest_point}")
     print(f"2. The number of spaces between the loop is equal to: {spaces_inside_loop}")
 
 
