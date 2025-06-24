@@ -20,3 +20,26 @@ def solve_quadratic_equation(a: float, b: float, c: float) -> tuple[float, ...]:
     # If delta < 0, no real solutions
 
     return tuple(solutions)
+
+
+def transpose_2d_array(matrix: list[list[str]]) -> list[list[str]]:
+    """
+    Transpose a 2D matrix (list of lists).
+    Returns a new matrix where rows and columns are swapped.
+    """
+    if not matrix or not matrix[0]:
+        return []
+    
+    return [list(row) for row in zip(*matrix)]
+
+
+def count_manhattan_distance(pair: tuple[tuple[int, ...], tuple[int, ...]]) -> int:
+    """
+    Calculates the Manhattan distance between two points of any dimension.
+    Each point is a tuple of coordinates.
+    Example: count_manhattan_distance(((x1, y1, ...), (x2, y2, ...))) -> sum(|xi - yi| for all i)
+    """
+    v1, v2 = pair
+    if len(v1) != len(v2):
+        raise ValueError("Both vectors must have the same number of dimensions.")
+    return sum(abs(a - b) for a, b in zip(v1, v2))
