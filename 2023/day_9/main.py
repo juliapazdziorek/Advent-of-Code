@@ -42,8 +42,8 @@ def count_previous_values(history: list[list[int]]) -> list[int]:
 
 def main() -> None:
     history = get_history()
-    sum_of_next_values = sum(value for value in count_next_values(history))
-    sum_of_previous_values = sum(value for value in count_previous_values(history))
+    sum_of_next_values = sum(count_next_values(history))
+    sum_of_previous_values = sum(count_previous_values(history))
     print(f"1. The sum of extrapolated next values in history is equal to: {sum_of_next_values}")
     print(f"2. The sum of extrapolated previous values in history is equal to: {sum_of_previous_values}")
 
