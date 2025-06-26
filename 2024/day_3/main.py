@@ -35,7 +35,7 @@ def count_mul(mul: str) -> int:
     return int(nums[0]) * int(nums[1])
 
 
-def get_sum_of_muls(lines: list[str], get_mul_func: Callable[[list[str]], [list[str]]]) -> int:
+def get_sum_of_muls(lines: list[str], get_mul_func: Callable[[list[str]], list[str]]) -> int:
     muls = get_mul_func(lines)
     results_of_muls = [count_mul(mul) for mul in muls]
     return sum(results_of_muls)
