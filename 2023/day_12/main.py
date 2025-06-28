@@ -17,8 +17,8 @@ def get_springs_data() -> list[tuple[str, list[int]]]:
 
 
 def check_base_case(groups: list[int], group_index: int, group_length: int) -> int:
-    if group_length > 0: # end of springs in group
-        if group_index >= len(groups) or group_length != groups[group_index]: # group lenght not match
+    if group_length > 0: # end of springs in a group
+        if group_index >= len(groups) or group_length != groups[group_index]: # group length doesn't match
             return 0
         group_index += 1
 
@@ -42,13 +42,13 @@ def count_springs_arrangements(springs: str, groups: list[int], springs_index: i
     result = 0
     current_spring = springs[springs_index]
     if current_spring in ['#', '?']:
-        if group_index < len(groups) and group_length < groups[group_index]: # continue group
+        if group_index < len(groups) and group_length < groups[group_index]: # continue a group
             result += count_springs_arrangements(springs, groups, springs_index + 1, group_index, group_length + 1, memo)
 
     if current_spring in ['.', '?']:
         if group_length == 0: # no group
             result += count_springs_arrangements(springs, groups, springs_index + 1, group_index, 0, memo)
-        elif group_index < len(groups) and group_length == groups[group_index]: # finish group
+        elif group_index < len(groups) and group_length == groups[group_index]: # finish a group
             result += count_springs_arrangements(springs, groups, springs_index + 1, group_index + 1, 0, memo)
 
     memo[key] = result
