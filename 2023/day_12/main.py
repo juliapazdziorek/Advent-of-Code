@@ -17,39 +17,39 @@ def get_springs_data() -> list[tuple[str, list[int]]]:
 
 
 def check_base_case(groups: list[int], group_index: int, group_length: int) -> int:
-    if group_length > 0:
-        if group_index >= len(groups) or group_length != groups[group_index]:
+    if group_length > 0: # end of springs in group
+        if group_index >= len(groups) or group_length != groups[group_index]: # group lenght not match
             return 0
         group_index += 1
 
-    if group_index == len(groups):
+    if group_index == len(groups): # groups match
         return 1
     else:
         return 0
 
 
-def count_springs_arrangements(springs: str, groups: list[int], index: int=0, group_index: int=0, group_length: int=0, memo: dict=None) -> int:
+def count_springs_arrangements(springs: str, groups: list[int], springs_index: int=0, group_index: int=0, group_length: int=0, memo: dict=None) -> int:
     if memo is None:
         memo = {}
         
-    key = (index, group_index, group_length)
+    key = (springs_index, group_index, group_length)
     if key in memo:
         return memo[key]
 
-    if index == len(springs):
+    if springs_index == len(springs):
         return check_base_case(groups, group_index, group_length)
         
     result = 0
-    current_spring = springs[index]
+    current_spring = springs[springs_index]
     if current_spring in ['#', '?']:
-        if group_index < len(groups) and group_length < groups[group_index]:
-            result += count_springs_arrangements(springs, groups, index + 1, group_index, group_length + 1, memo)
+        if group_index < len(groups) and group_length < groups[group_index]: # continue group
+            result += count_springs_arrangements(springs, groups, springs_index + 1, group_index, group_length + 1, memo)
 
     if current_spring in ['.', '?']:
-        if group_length == 0:
-            result += count_springs_arrangements(springs, groups, index + 1, group_index, 0, memo)
-        elif group_index < len(groups) and group_length == groups[group_index]:
-            result += count_springs_arrangements(springs, groups, index + 1, group_index + 1, 0, memo)
+        if group_length == 0: # no group
+            result += count_springs_arrangements(springs, groups, springs_index + 1, group_index, 0, memo)
+        elif group_index < len(groups) and group_length == groups[group_index]: # finish group
+            result += count_springs_arrangements(springs, groups, springs_index + 1, group_index + 1, 0, memo)
 
     memo[key] = result
     return result
