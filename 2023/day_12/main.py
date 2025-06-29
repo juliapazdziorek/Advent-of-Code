@@ -7,7 +7,7 @@ from utils import files
 
 def get_springs_data() -> list[tuple[str, list[int]]]:
     lines = files.read_file('data.txt')
-    springs_data = [] 
+    springs_data = []
     for line in lines:
         parts = line.split()
         damaged_groups = [int(damaged_group) for damaged_group in parts[1].split(',')]
@@ -16,31 +16,28 @@ def get_springs_data() -> list[tuple[str, list[int]]]:
     return springs_data
 
 
-def end_of_springs(damaged_groups, damaged_i, damaged_length):
+def end_of_springs(damaged_groups: list[int], damaged_i: int, damaged_length: int) -> int:
     if damaged_length > 0:
         if damaged_i >= len(damaged_groups) or damaged_length != damaged_groups[damaged_i]:
             return 0
         damaged_i += 1
 
-    if damaged_i == len(damaged_groups):
-        return 1
-    else:
-        return 0
+    return 1 if damaged_i == len(damaged_groups) else 0
 
 
-def continue_damaged(springs_data, springs_i, damaged_i, damaged_length, memo):
+def continue_damaged(springs_data: tuple[str, list[int]], springs_i: int, damaged_i: int, damaged_length: int, memo: dict) -> int:
     return count_springs_arrangements(springs_data, springs_i + 1, damaged_i, damaged_length + 1, memo)
 
 
-def continue_operational(springs_data, springs_i, damaged_i, memo):
+def continue_operational(springs_data: tuple[str, list[int]], springs_i: int, damaged_i: int, memo: dict) -> int:
     return count_springs_arrangements(springs_data, springs_i + 1, damaged_i, 0, memo)
 
 
-def finish_damaged(springs_data, springs_i, damaged_i, memo):
+def finish_damaged(springs_data: tuple[str, list[int]], springs_i: int, damaged_i: int, memo: dict) -> int:
     return count_springs_arrangements(springs_data, springs_i + 1, damaged_i + 1, 0, memo)
 
 
-def count_springs_arrangements(springs_data, springs_i=0, damaged_i=0, damaged_length=0, memo=None):
+def count_springs_arrangements(springs_data: tuple[str, list[int]], springs_i: int = 0, damaged_i: int = 0, damaged_length: int = 0, memo: dict | None = None) -> int:
     if memo is None:
         memo = {}
 
@@ -51,15 +48,15 @@ def count_springs_arrangements(springs_data, springs_i=0, damaged_i=0, damaged_l
     springs, damaged_groups = springs_data
     if springs_i == len(springs):
         return end_of_springs(damaged_groups, damaged_i, damaged_length)
-    
+
     result = 0
-    if springs[springs_i] in ['#','?'] and damaged_i < len(damaged_groups) and damaged_length < damaged_groups[damaged_i]:
+    if springs[springs_i] in ['#', '?'] and damaged_i < len(damaged_groups) and damaged_length < damaged_groups[damaged_i]:
         result += continue_damaged(springs_data, springs_i, damaged_i, damaged_length, memo)
 
-    if springs[springs_i] in ['.','?'] and damaged_length == 0:
+    if springs[springs_i] in ['.', '?'] and damaged_length == 0:
         result += continue_operational(springs_data, springs_i, damaged_i, memo)
 
-    elif springs[springs_i] in ['.','?'] and damaged_i < len(damaged_groups) and damaged_length == damaged_groups[damaged_i]:
+    elif springs[springs_i] in ['.', '?'] and damaged_i < len(damaged_groups) and damaged_length == damaged_groups[damaged_i]:
         result += finish_damaged(springs_data, springs_i, damaged_i, memo)
 
     memo[key] = result
@@ -71,7 +68,7 @@ def count_all_arrangements(springs_data: list[tuple[str, list[int]]]) -> int:
 
 
 def unfold(springs_data: list[tuple[str, list[int]]]) -> list[tuple[str, list[int]]]:
-    new_data = []
+    new_data: list[tuple[str, list[int]]] = []
     for springs, damaged_groups in springs_data:
         unfolded_springs = '?'.join([springs] * 5)
         unfolded_groups = damaged_groups * 5
@@ -87,7 +84,7 @@ def main() -> None:
     springs_data = get_springs_data()
     arrangements = count_all_arrangements(springs_data)
     unfolded_arrangements = count_unfolded_all_arrangements(springs_data)
-
+    
     print(f"1. The sum of possible arrangements is equal to: {arrangements}")
     print(f"2. The sum of possible arrangements with unfolded records is equal to: {unfolded_arrangements}")
 
