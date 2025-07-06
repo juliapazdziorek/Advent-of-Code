@@ -19,38 +19,38 @@ MIRROR_REFLECTIONS = {
 }
 
 
-def move(x: int, y: int, direction: str) -> tuple[int, int]:
-    delta_x, delta_y = DIRECTION_MAP[direction]
-    return x + delta_x, y + delta_y
+def move(y: int, x: int, direction: str) -> tuple[int, int]:
+    delta_y, delta_x = DIRECTION_MAP[direction]
+    return y + delta_y, x + delta_x
 
 
-def get_next_positions(x: int, y: int, direction: str, tile: str) -> list[tuple[int, int, str]]:
+def get_next_positions(y: int, x: int, direction: str, tile: str) -> list[tuple[int, int, str]]:
     if tile == '.':
-        new_x, new_y = move(x, y, direction)
-        return [(new_x, new_y, direction)]
+        new_y, new_x = move(y, x, direction)
+        return [(new_y, new_x, direction)]
     
     elif tile in ['/', '\\']:
         new_direction = MIRROR_REFLECTIONS[tile][direction]
-        new_x, new_y = move(x, y, new_direction)
-        return [(new_x, new_y, new_direction)]
+        new_y, new_x = move(y, x, new_direction)
+        return [(new_y, new_x, new_direction)]
     
     elif tile == '-':
         if direction in ['U', 'D']:
-            left_x, left_y = move(x, y, 'L')
-            right_x, right_y = move(x, y, 'R')
-            return [(left_x, left_y, 'L'), (right_x, right_y, 'R')]
+            left_y, left_x = move(y, x, 'L')
+            right_y, right_x = move(y, x, 'R')
+            return [(left_y, left_x, 'L'), (right_y, right_x, 'R')]
         else:
-            new_x, new_y = move(x, y, direction)
-            return [(new_x, new_y, direction)]
+            new_y, new_x = move(y, x, direction)
+            return [(new_y, new_x, direction)]
     
     elif tile == '|':
         if direction in ['L', 'R']:
-            up_x, up_y = move(x, y, 'U')
-            down_x, down_y = move(x, y, 'D')
-            return [(up_x, up_y, 'U'), (down_x, down_y, 'D')]
+            up_y, up_x = move(y, x, 'U')
+            down_y, down_x = move(y, x, 'D')
+            return [(up_y, up_x, 'U'), (down_y, down_x, 'D')]
         else:
-            new_x, new_y = move(x, y, direction)
-            return [(new_x, new_y, direction)]
+            new_y, new_x = move(y, x, direction)
+            return [(new_y, new_x, direction)]
     
     return []
 
@@ -61,20 +61,20 @@ def count_energized_tiles(tile_grid: list[list[str]], start: tuple[int, int, str
     queue = deque([start])
 
     while queue:
-        x, y, direction = queue.popleft()
+        y, x, direction = queue.popleft()
         
-        if (x < 0 or x >= len(tile_grid) or 
-            y < 0 or y >= len(tile_grid[0]) or 
-            (x, y, direction) in visited):
+        if (y < 0 or y >= len(tile_grid) or 
+            x < 0 or x >= len(tile_grid[0]) or 
+            (y, x, direction) in visited):
             continue
         
-        visited.add((x, y, direction))
-        energized.add((x, y))
+        visited.add((y, x, direction))
+        energized.add((y, x))
         
-        tile = tile_grid[x][y]
-        next_positions = get_next_positions(x, y, direction, tile)
-        for next_x, next_y, next_direction in next_positions:
-            queue.append((next_x, next_y, next_direction))
+        tile = tile_grid[y][x]
+        next_positions = get_next_positions(y, x, direction, tile)
+        for next_y, next_x, next_direction in next_positions:
+            queue.append((next_y, next_x, next_direction))
     
     return len(energized)
 
@@ -83,12 +83,12 @@ def count_max_energized_tiles(tile_grid: list[list[str]]) -> int:
     max_energized = 0
     height, width = len(tile_grid), len(tile_grid[0])
     
-    for i in range(width):
-        max_energized = max(max_energized, count_energized_tiles(tile_grid, (0, i, 'D')))
-        max_energized = max(max_energized, count_energized_tiles(tile_grid, (height - 1, i, 'U')))
-    for i in range(height):
-        max_energized = max(max_energized, count_energized_tiles(tile_grid, (i, 0, 'R')))
-        max_energized = max(max_energized, count_energized_tiles(tile_grid, (i, width - 1, 'L')))
+    for x in range(width):
+        max_energized = max(max_energized, count_energized_tiles(tile_grid, (0, x, 'D')))
+        max_energized = max(max_energized, count_energized_tiles(tile_grid, (height - 1, x, 'U')))
+    for y in range(height):
+        max_energized = max(max_energized, count_energized_tiles(tile_grid, (y, 0, 'R')))
+        max_energized = max(max_energized, count_energized_tiles(tile_grid, (y, width - 1, 'L')))
     
     return max_energized
 
