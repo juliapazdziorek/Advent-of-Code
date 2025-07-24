@@ -107,5 +107,7 @@ def main() -> None:
     
     print(f"1. The minimal heat loss is equal to: {min_heat_loss_normal_crucibles}")
     print(f"2. The minimal heat loss using ultra crucibles is equal to: {min_heat_loss_ultra_crucibles}")
+
+    
 if __name__ == "__main__":
     main()
