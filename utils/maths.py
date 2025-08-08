@@ -43,3 +43,39 @@ def count_manhattan_distance(pair: tuple[tuple[int, ...], tuple[int, ...]]) -> i
     if len(v1) != len(v2):
         raise ValueError("Both vectors must have the same number of dimensions.")
     return sum(abs(a - b) for a, b in zip(v1, v2))
+
+
+def shoelace_formula(vertices: list[tuple[int, int]]) -> float:
+    """
+    Calculates the area of a polygon using the shoelace formula.
+
+    """
+    if len(vertices) < 3:
+        return 0.0
+    
+    if vertices[0] != vertices[-1]:
+        vertices = vertices + [vertices[0]]
+    
+    area = 0.0
+    for i in range(len(vertices) - 1):
+        x1, y1 = vertices[i]
+        x2, y2 = vertices[i + 1]
+        area += x1 * y2 - x2 * y1
+    
+    return abs(area) / 2.0
+
+
+def polygon_area_with_boundary(vertices: list[tuple[int, int]], boundary_points: int) -> int:
+    """
+    Calculates the total area of a polygon including its interior and boundary using Pick's theorem.
+    
+    Pick's theorem: A = I + B/2 - 1, where:
+    - A is the area calculated by shoelace formula
+    - I is the number of interior points
+    - B is the number of boundary points
+    
+    Rearranging: I = A - B/2 + 1
+    Total points = I + B = A - B/2 + 1 + B = A + B/2 + 1
+    """
+    area = shoelace_formula(vertices)
+    return int(area + boundary_points // 2 + 1)
