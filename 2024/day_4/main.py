@@ -73,6 +73,5 @@ def main() -> None:
     print(f"2. The number of x-mas is equal to: {number_of_x_mas}")
 
 
-
 if __name__ == "__main__":
     main()
