@@ -84,7 +84,7 @@ def sum_middle_of_corrected(ordering_rules: list[tuple[int, int]], updates: list
 
 
 def main() -> None:
-    ordering_rules, updates = read_data('data.txt')
+    ordering_rules, updates = files.read_data('data.txt')
     sum_of_middle = sum_middle_of_sorted(ordering_rules, updates)
     sum_of_middle_sorted = sum_middle_of_corrected(ordering_rules, updates)
 
