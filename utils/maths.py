@@ -48,7 +48,6 @@ def count_manhattan_distance(pair: tuple[tuple[int, ...], tuple[int, ...]]) -> i
 def shoelace_formula(vertices: list[tuple[int, int]]) -> float:
     """
     Calculates the area of a polygon using the shoelace formula.
-
     """
     if len(vertices) < 3:
         return 0.0
