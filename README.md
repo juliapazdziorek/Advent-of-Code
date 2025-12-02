@@ -14,7 +14,7 @@ AdventOfCode/
 ├── <year>/
 │   ├── day_<N>/
 │   │   ├── main.py
-│   │   └── <data.txt> (placeholder – add your own input)
+│   │   └── <data.txt> (add your own input)
 ├── utils/
 │   ├── __init__.py
 │   ├── files.py
@@ -22,7 +22,7 @@ AdventOfCode/
 ```
 
 - `<year>/day_<N>/` — solutions for each day of Advent of Code for a given year, with input data and Python scripts.
-- `data.txt` — files live in each `day_<N>` folder, but they are not committed here to respect Advent of Code's policy — drop your own puzzle input in those placeholders before running.
+- `data.txt` — files live in each `day_<N>` folder, but they are not committed here to respect Advent of Code's policy — drop your own puzzle input before running.
 - `utils/` — utility scripts for input parsing, math helpers, and other reusable tools.
 
 ## About Advent of Code
