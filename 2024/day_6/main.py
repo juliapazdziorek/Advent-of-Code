@@ -85,7 +85,7 @@ def main() -> None:
     loop_positions = count_loop_positions(grid)
 
     print(f"1. The number distinct positions is equal to: {distinct_positions}")
-    print(f"1. The number new obstruction positions that will create a loop positions is equal to: {loop_positions}")
+    print(f"2. The number new obstruction positions that will create a loop positions is equal to: {loop_positions}")
 
 
 if __name__ == "__main__":
