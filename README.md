@@ -1,12 +1,12 @@
-# Advent of Code Solutions ⭐️
+# Advent of Code Solutions **
 
-Welcome to my Advent of Code repository! Here you'll find my personal solutions to the Advent of Code programming puzzles, organized by year and day. This project is a work in progress and will be updated as I solve more challenges.
+Welcome to my Advent of Code repository. Here you'll find my solutions to the Advent of Code programming puzzle. I'm currently working through the 2025 puzzles and occasionally hopping back to earlier years to fill in gaps. This project is a work in progress and will be updated as I solve more challenges.
 
-## 🐍 Built with Pure Python
+## Built with Pure Python
 
-All solutions in this repository are written in **pure Python**—no external dependencies required! This keeps the code simple, portable, and easy to run on any system with Python 3 installed.
+All solutions in this repository are written in **pure Python** — no external dependencies required. That decision keeps the code simple and portable, nudges me to lean on the standard library, and helps me keep sharpening my Python skills.
 
-## 📁 Project Structure
+## Project Structure
 
 ```text
 AdventOfCode/
@@ -14,37 +14,21 @@ AdventOfCode/
 ├── <year>/
 │   ├── day_<N>/
 │   │   ├── main.py
-│   │   └── data.txt
+│   │   └── <data.txt> (placeholder – add your own input)
 ├── utils/
 │   ├── __init__.py
 │   ├── files.py
 │   └── ...
 ```
 
-- `<year>/day_<N>/` — Solutions for each day of Advent of Code for a given year, with input data and Python scripts.
-- `utils/` — Utility scripts for input parsing and other helper functions.
+- `<year>/day_<N>/` — solutions for each day of Advent of Code for a given year, with input data and Python scripts.
+- `data.txt` — files live in each `day_<N>` folder, but they are not committed here to respect Advent of Code's policy — drop your own puzzle input in those placeholders before running.
+- `utils/` — utility scripts for input parsing, math helpers, and other reusable tools.
 
-## ✨ About Advent of Code
+## About Advent of Code
 
-[Advent of Code](https://adventofcode.com/) is an annual set of holiday-themed programming challenges. It’s a fun way to practice coding, problem-solving, and algorithms!
-
-## 🚀 How to Use
-
-1. Clone this repo.
-2. Make sure you have Python 3 installed.
-3. Run any solution with:
-
-   ```bash
-   python <year>/day_<N>/main.py
-   ```
-
-   (make sure you have your own puzzle input)
-4. Update or add your own solutions as you go!
-
-## 🌟 Progress
-
-This repo will be updated regularly as I work through more puzzles and years. Stay tuned for more stars!
+[Advent of Code](https://adventofcode.com/) is an annual set of holiday-themed programming challenges. Feel free to explore the puzzles yourself—it’s a solid opportunity to practice coding, problem-solving, and algorithms.
 
 ---
 
-Happy coding and may your code be bug-free! ⭐️⭐️⭐️
+Released under the MIT License.
