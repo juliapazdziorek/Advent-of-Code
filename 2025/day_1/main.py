@@ -58,8 +58,8 @@ def main() -> None:
     zeros = count_zeros(instructions)
     zeros_during_rotations = count_zeros_during_rotations(instructions)
 
-    print(f"1. The numer of zeros hit at the end of each instruction is equal to {zeros}")
-    print(f"2. The numer of zeros hit at the during every instruction is equal to {zeros_during_rotations}")
+    print(f"1. The numer of zeros hit at the end of each instruction is equal to: {zeros}")
+    print(f"2. The numer of zeros hit at the during every instruction is equal to: {zeros_during_rotations}")
 
 
 if __name__ == "__main__":
