@@ -67,7 +67,7 @@ def main() -> None:
     rolls_removed = count_rolls_removed(grid)
 
     print(f"1. The number of paper rolls that can be accessed is equal to: {rolls_accessed}")
-    print(f"1. The number of paper rolls that can be removed is equal to: {rolls_removed}")
+    print(f"2. The number of paper rolls that can be removed is equal to: {rolls_removed}")
 
 
 if __name__ == "__main__":
