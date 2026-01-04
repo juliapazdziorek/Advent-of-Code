@@ -4,7 +4,7 @@ Welcome to my Advent of Code repository. Here you'll find my solutions to the Ad
 
 ## Built with Pure Python
 
-All solutions in this repository are written in **pure Python** — no external dependencies required. That decision keeps the code simple and portable, nudges me to lean on the standard library, and helps me keep sharpening my Python skills.
+All solutions in this repository are written in **pure Python** – no external dependencies required. That decision keeps the code simple and portable, nudges me to lean on the standard library, and helps me keep sharpening my Python skills.
 
 ## Project Structure
 
@@ -21,13 +21,13 @@ AdventOfCode/
 │   └── ...
 ```
 
-- `<year>/day_<N>/` — solutions for each day of Advent of Code for a given year, with input data and Python scripts.
-- `data.txt` — files live in each `day_<N>` folder, but they are not committed here to respect Advent of Code's policy — drop your own puzzle input before running.
-- `utils/` — utility scripts for input parsing, math helpers, and other reusable tools.
+- `<year>/day_<N>/` – solutions for each day of Advent of Code for a given year, with input data and Python scripts.
+- `data.txt` – files live in each `day_<N>` folder, but they are not committed here to respect Advent of Code's policy – drop your own puzzle input before running.
+- `utils/` – utility scripts for input parsing, math helpers, and other reusable tools.
 
 ## About Advent of Code
 
-[Advent of Code](https://adventofcode.com/) is an annual set of holiday-themed programming challenges. Feel free to explore the puzzles yourself—it’s a solid opportunity to practice coding, problem-solving, and algorithms.
+[Advent of Code](https://adventofcode.com/) is an annual set of holiday-themed programming challenges. Feel free to explore the puzzles yourself – it’s a solid opportunity to practice coding, problem-solving, and algorithms.
 
 ---
 
