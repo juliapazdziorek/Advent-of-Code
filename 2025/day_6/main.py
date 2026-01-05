@@ -1,7 +1,7 @@
 from utils import files
 from dataclasses import dataclass
 
-# Day 5: Trash Compactor
+# Day 6: Trash Compactor
 # https://adventofcode.com/2025/day/6
 
 
