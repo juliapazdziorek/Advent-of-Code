@@ -45,6 +45,19 @@ def count_manhattan_distance(pair: tuple[tuple[int, ...], tuple[int, ...]]) -> i
     return sum(abs(a - b) for a, b in zip(v1, v2))
 
 
+def count_euclidean_distance(pair: tuple[tuple[float, ...], tuple[float, ...]]) -> float:
+    """
+    Calculates the Euclidean distance between two points of any dimension.
+    Returns sqrt(sum of squared differences).
+    Example: count_euclidean_distance(((0, 0), (3, 4))) -> 5.0
+             count_euclidean_distance(((1, 2, 3), (4, 6, 8))) -> sqrt(9+16+25) = 7.07...
+    """
+    v1, v2 = pair
+    if len(v1) != len(v2):
+        raise ValueError("Both vectors must have the same number of dimensions.")
+    return math.sqrt(sum((a - b) ** 2 for a, b in zip(v1, v2)))
+
+
 def shoelace_formula(vertices: list[tuple[int, int]]) -> float:
     """
     Calculates the area of a polygon using the shoelace formula.
