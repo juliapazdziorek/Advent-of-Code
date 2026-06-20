@@ -31,4 +31,4 @@ AdventOfCode/
 
 ## License
 
-Released under the MIT License.
+This repository is open-sourced under the MIT License.
