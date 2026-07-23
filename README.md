@@ -28,7 +28,3 @@ AdventOfCode/
 ## About Advent of Code
 
 [Advent of Code](https://adventofcode.com/) is an annual set of holiday-themed programming challenges. Feel free to explore the puzzles yourself – it’s a solid opportunity to practice coding, problem-solving, and algorithms.
-
-## License
-
-This repository is open-sourced under the MIT License.
